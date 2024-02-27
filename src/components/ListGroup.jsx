@@ -45,23 +45,26 @@ function ListGroup() {
         const { data, error } = useSWR(url, fetcher);
         if (error) return 'Failed to load';
         if (!data) return 'Loading...';
+
         let parser = new DOMParser();
         let doc = parser.parseFromString(data, 'text/html');
         let listeners = doc.querySelector('.artist-about-followers').textContent;
-        return listeners;
+        return listeners + "listeners";
     }
 
+    getArtistListeners('4NOFcRCgjvnRy8nKVGUM0L');
+    
     for (const artist of artistList) {
-       artist.listeners = getArtistListeners(artist.id);
-       // 429 prevent
-    break;
+       // ...
     }
+
+
       
   return (
     <>
         <h1>PHONK CZ/SK Monthly Listeners Table</h1>
         <ul className="list-group">
-            {artistList.map((item) => <li key={item.id} className="list-group-item"><strong className=''>{item.name}: </strong><span>{item.listeners} listeners</span></li>)}
+            {artistList.map((item) => <li key={item.id} className="list-group-item"><strong className=''>{item.name}: </strong><span>{item.listeners}</span></li>)}
         </ul>
     </>
   );
