@@ -37,6 +37,7 @@ const ListGroup = () => {
         { id: "4551yzmt7C1DbJkCeaKKpY", name: "CORXNULL" },
         { id: "7lv9NFUQpzzuVMseM2XP0p", name: "Steveruu MAROS" },
     ];
+    
     useEffect(() => {
         const fetchData = async () => {
             for (const artist of artistList) {
